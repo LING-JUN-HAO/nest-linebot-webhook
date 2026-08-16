@@ -58,7 +58,7 @@ export class ScheduledTaskService {
 
   private resolveMessages(key: MessageKey): messagingApi.Message[] {
     const messageMap: Record<MessageKey, messagingApi.Message[]> = {
-      DUANWU_START: [
+      START: [
         this.lineMessageService.createTextMessage(START_REPLY_1),
         this.lineMessageService.createImageMapMessage(START_REPLY_2),
       ],

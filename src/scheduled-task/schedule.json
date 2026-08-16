@@ -2,7 +2,7 @@
   "schedules": [
     {
       "messages": [
-        "DUANWU_START"
+        "START"
       ]
     }
   ]
