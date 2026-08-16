@@ -18,11 +18,16 @@ import {
 import {
   START_REPLY_1,
   START_REPLY_2,
-  TEETH_REPLY_1,
-  MEAT_REPLY,
-  SWEET_REPLY,
+  START_Y_REPLY,
+  START_N_REPLY,
+  SECOND_REPLY,
+  SECOND_Y_REPLY,
+  SECOND_N_REPLY,
+  THIRD_REPLY,
+  THIRD_Y_REPLY,
+  THIRD_N_REPLY,
+  FINAL_REPLY,
 } from './replies';
-
 @Injectable()
 export class LineWebhookService {
   private readonly lineClient: messagingApi.MessagingApiClient;
@@ -91,19 +96,48 @@ export class LineWebhookService {
     const messageEventHandlerMap = {
       text: (message) => {
         const { text } = message;
-        //2026 端午節專屬互動
-        if (text === '端午節快樂')
+        // 2026 中秋節專屬互動
+        // First
+        if (text === '中秋節快樂')
           return [
             this.lineMessageService.createTextMessage(START_REPLY_1),
             this.lineMessageService.createImageMapMessage(START_REPLY_2),
           ];
-        if (text === '我是甜粽派')
-          return this.lineMessageService.createImageMapMessage(SWEET_REPLY);
-        if (text === '我是肉粽派')
-          return this.lineMessageService.createImageMapMessage(MEAT_REPLY);
-        if (text === '我是假牙族')
-          return [this.lineMessageService.createImageMapMessage(TEETH_REPLY_1)];
-
+        if (text === '牙醫師')
+          return [
+            this.lineMessageService.createImageMapMessage(START_Y_REPLY),
+            this.lineMessageService.createImageMapMessage(SECOND_REPLY),
+          ];
+        if (text === '獸醫師' || text === '中醫師')
+          return [
+            this.lineMessageService.createImageMapMessage(START_N_REPLY),
+            this.lineMessageService.createImageMapMessage(SECOND_REPLY),
+          ];
+        // second
+        if (text === '醫官')
+          return [
+            this.lineMessageService.createImageMapMessage(SECOND_Y_REPLY),
+            this.lineMessageService.createImageMapMessage(THIRD_REPLY),
+          ];
+        if (text === '電視記者' || text === '觀光導遊')
+          return [
+            this.lineMessageService.createImageMapMessage(SECOND_N_REPLY),
+            this.lineMessageService.createImageMapMessage(THIRD_REPLY),
+          ];
+        // third
+        if (text === '顧老人、顧少年、顧腹肚')
+          return [
+            this.lineMessageService.createImageMapMessage(THIRD_Y_REPLY),
+            this.lineMessageService.createFlexMessage(FINAL_REPLY),
+          ];
+        if (
+          text === '顧自己、顧朋友、顧有錢人' ||
+          text === '顧招牌、顧口號、顧選票'
+        )
+          return [
+            this.lineMessageService.createImageMapMessage(THIRD_N_REPLY),
+            this.lineMessageService.createFlexMessage(FINAL_REPLY),
+          ];
         return null;
       },
     } satisfies Partial<MessageEventHandlerMap>; // 這部分主要是因為目前沒有處理 file 事件
