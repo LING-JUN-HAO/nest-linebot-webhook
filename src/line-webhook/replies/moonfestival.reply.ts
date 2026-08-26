@@ -55,7 +55,7 @@ export const START_REPLY_2: ImageMapMessageReq = {
 
 export const START_Y_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1786810207/A01-Y_uinpg8/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1787755818/A01-1_zu6f3c/png',
   altText: '答對囉！是牙醫師',
   baseSize: { width: 1040, height: 802 },
   actions: [],
@@ -63,7 +63,7 @@ export const START_Y_REPLY: ImageMapMessageReq = {
 
 export const START_N_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1786810207/A01-N_kg6csv/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1787755818/A01-2_xhu8y8/png',
   altText: '答錯囉！是牙醫師',
   baseSize: { width: 1040, height: 802 },
   actions: [],
@@ -114,7 +114,7 @@ export const SECOND_REPLY: ImageMapMessageReq = {
 
 export const SECOND_Y_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1786810207/A02-Y_kahdok/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1787755826/A02-1_bjvx5e/png',
   altText: '答對囉！是醫官',
   baseSize: { width: 1040, height: 802 },
   actions: [],
@@ -122,7 +122,7 @@ export const SECOND_Y_REPLY: ImageMapMessageReq = {
 
 export const SECOND_N_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1786810207/A02-N_jtf6yb/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1787755818/A02-2_fsb2dw/png',
   altText: '答錯囉！是醫官',
   baseSize: { width: 1040, height: 802 },
   actions: [],
@@ -173,7 +173,7 @@ export const THIRD_REPLY: ImageMapMessageReq = {
 
 export const THIRD_Y_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1786810207/A03-Y_yo9qin/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1787755818/A03-1_edago4/png',
   altText: '答對囉！是顧老人、顧少年、顧腹肚',
   baseSize: { width: 1040, height: 802 },
   actions: [],
@@ -181,7 +181,7 @@ export const THIRD_Y_REPLY: ImageMapMessageReq = {
 
 export const THIRD_N_REPLY: ImageMapMessageReq = {
   baseUrl:
-    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1786810207/A03-N_y9kww7/png',
+    'https://haoyu-linebot.qd513020.workers.dev/imagemap/v1787755818/A03-2_ntpfdl/png',
   altText: '答錯囉！是顧老人、顧少年、顧腹肚',
   baseSize: { width: 1040, height: 802 },
   actions: [],
