@@ -1,0 +1,91 @@
+import { TextMessageReq, FlexMessageReq } from 'src/line-message/types';
+
+const LIFF_URL = 'https://liff.line.me/2011622081-De9SToPC#supportcard';
+
+// 替換成實際主視覺圖片網址
+const HERO_IMAGE_URL = 'https://i.imgur.com/placeholder.png';
+
+export const LIPP_FOLLOW_REPLY_1: TextMessageReq = {
+  text: `歡迎加入！
+讓改變的力量匯聚成流，希望擴散成波！
+
+30 秒做出你的「政波卡」，成為政波，改變南投！🌊`,
+};
+
+export const LIPP_ENTRY_REPLY: FlexMessageReq = {
+  altText: '加入 #一股改變南投的力量',
+  contents: {
+    type: 'bubble',
+    size: 'giga',
+    hero: {
+      type: 'image',
+      url: HERO_IMAGE_URL,
+      size: 'full',
+      aspectRatio: '20:13',
+      aspectMode: 'cover',
+      action: {
+        type: 'uri',
+        label: '加入政波',
+        uri: LIFF_URL,
+      },
+    },
+    body: {
+      type: 'box',
+      layout: 'vertical',
+      paddingAll: 'none',
+      contents: [
+        {
+          type: 'box',
+          layout: 'vertical',
+          paddingTop: '24px',
+          paddingStart: '20px',
+          paddingEnd: '20px',
+          paddingBottom: '20px',
+          spacing: 'xl',
+          contents: [
+            {
+              type: 'text',
+              text: '#一股改變南投的力量',
+              weight: 'bold',
+              size: '20px',
+              color: '#1d3461',
+              wrap: true,
+            },
+            {
+              type: 'text',
+              text: '輸入暱稱、選擇你和南投的關係，馬上完成專屬於你的政波卡。',
+              wrap: true,
+              size: '18px',
+              color: '#555555',
+            },
+            {
+              type: 'box',
+              layout: 'vertical',
+              height: '50px',
+              backgroundColor: '#06C755',
+              cornerRadius: '999px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 'xl',
+              action: {
+                type: 'uri',
+                label: '加入政波',
+                uri: LIFF_URL,
+              },
+              contents: [
+                {
+                  type: 'text',
+                  text: '加入政波',
+                  color: '#FFFFFF',
+                  weight: 'bold',
+                  size: '18px',
+                  align: 'center',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
+};

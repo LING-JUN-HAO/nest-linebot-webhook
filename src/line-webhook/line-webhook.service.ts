@@ -29,6 +29,8 @@ import {
   FINAL_REPLY,
   HUNT_ENTRY_REPLY_1,
   HUNT_ENTRY_REPLY_2,
+  LIPP_FOLLOW_REPLY_1,
+  LIPP_ENTRY_REPLY,
 } from './replies';
 @Injectable()
 export class LineWebhookService {
@@ -78,9 +80,9 @@ export class LineWebhookService {
     await this.lineClient.replyMessage({
       replyToken: event.replyToken,
       messages: [
-        this.lineMessageService.createTextMessage(START_REPLY_1),
-        this.lineMessageService.createImageMapMessage(START_REPLY_2),
-      ],
+        this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
+        this.lineMessageService.createFlexMessage(LIPP_ENTRY_REPLY),
+      ] as messagingApi.Message[],
     });
   }
 
@@ -98,6 +100,13 @@ export class LineWebhookService {
     const messageEventHandlerMap = {
       text: (message) => {
         const { text } = message;
+        // 政波卡
+        if (text === '加入政波' || text === '政波')
+          return [
+            this.lineMessageService.createTextMessage(LIPP_FOLLOW_REPLY_1),
+            this.lineMessageService.createFlexMessage(LIPP_ENTRY_REPLY),
+          ];
+
         // 2026 中秋節專屬互動
         // 中秋尋物賀卡
         if (text === '中秋尋物' || text === '尋物賀卡')
